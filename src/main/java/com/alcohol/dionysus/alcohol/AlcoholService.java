@@ -1,18 +1,18 @@
 package com.alcohol.dionysus.alcohol;
 
 import com.alcohol.dionysus.alcohol.repository.AlcoholBrandRepository;
-import com.alcohol.dionysus.alcohol.repository.AlcoholRepository;
 import com.alcohol.dionysus.alcohol.repository.AlcoholTypeRepository;
+import com.alcohol.dionysus.alcohol.repository.BrandAlcoholRepository;
 import com.alcohol.dionysus.bean.dto.AlcoholBrandDto;
 import com.alcohol.dionysus.bean.dto.AlcoholDto;
 import com.alcohol.dionysus.bean.dto.AlcoholTypeDto;
 import com.alcohol.dionysus.bean.param.AlcoholRequestParam;
-import com.alcohol.dionysus.entity.Alcohol;
 import com.alcohol.dionysus.entity.AlcoholBrand;
 import com.alcohol.dionysus.entity.AlcoholBrand_;
 import com.alcohol.dionysus.entity.AlcoholType;
 import com.alcohol.dionysus.entity.AlcoholType_;
-import com.alcohol.dionysus.entity.Alcohol_;
+import com.alcohol.dionysus.entity.BrandAlcohol;
+import com.alcohol.dionysus.entity.BrandAlcohol_;
 import com.alcohol.dionysus.utils.ModelMapperUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class AlcoholService {
     private AlcoholBrandRepository brandRepository;
 
     @Autowired
-    private AlcoholRepository alcoholRepository;
+    private BrandAlcoholRepository brandAlcoholRepository;
 
 
     @Autowired
@@ -48,15 +48,15 @@ public class AlcoholService {
     }
 
     public List<AlcoholDto> getAlcohols(AlcoholRequestParam requestParam) {
-        List<Alcohol> alcohols = alcoholRepository.findAll(toSpecification(requestParam));
+        List<BrandAlcohol> brandAlcohols = brandAlcoholRepository.findAll(toSpecification(requestParam));
 
-        return ModelMapperUtils.mapList(mapper, alcohols, AlcoholDto.class);
+        return ModelMapperUtils.mapList(mapper, brandAlcohols, AlcoholDto.class);
     }
 
-    private static Specification<Alcohol> toSpecification(AlcoholRequestParam param) {
+    private static Specification<BrandAlcohol> toSpecification(AlcoholRequestParam param) {
         return (root, query, cb) -> {
-            Predicate typeEq = cb.equal(root.get(Alcohol_.TYPE).get(AlcoholType_.ID), param.getTypeId());
-            Predicate brandEq = cb.equal(root.get(Alcohol_.BRAND).get(AlcoholBrand_.ID), param.getBrandId());
+            Predicate typeEq = cb.equal(root.get(BrandAlcohol_.TYPE).get(AlcoholType_.ID), param.getTypeId());
+            Predicate brandEq = cb.equal(root.get(BrandAlcohol_.BRAND).get(AlcoholBrand_.ID), param.getBrandId());
 
             return cb.and(typeEq, brandEq);
         };
