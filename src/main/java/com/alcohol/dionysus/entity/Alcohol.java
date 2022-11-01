@@ -13,10 +13,10 @@ import javax.persistence.Table;
 @Setter
 @Entity
 @Table(name = "`alcohol`")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Alcohol {
     @Id
     private long id;
-    private String name;
+    private String chName;
     private Double abv;
 }

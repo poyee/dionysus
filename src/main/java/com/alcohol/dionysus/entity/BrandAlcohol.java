@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @Table(name = "`brand_alcohol`")
 @PrimaryKeyJoinColumn(name = "id")
 public class BrandAlcohol extends Alcohol {
-    private String chName;
     private String enName;
     private String rawType;
 
