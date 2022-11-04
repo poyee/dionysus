@@ -1,6 +1,7 @@
 package com.alcohol.dionysus.config;
 
 import com.alcohol.dionysus.alcohol.AlcoholController;
+import com.alcohol.dionysus.drink.DrinkController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -19,7 +20,8 @@ public class WebConfig {
     @Bean("ackController")
     public Set<Class<?>> ackController() {
         List<Class<?>> classes = Arrays.asList(
-                AlcoholController.class
+                AlcoholController.class,
+                DrinkController.class
         );
 
         return new HashSet<>(classes);

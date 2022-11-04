@@ -6,7 +6,7 @@ import com.alcohol.dionysus.alcohol.repository.BrandAlcoholRepository;
 import com.alcohol.dionysus.bean.dto.AlcoholBrandDto;
 import com.alcohol.dionysus.bean.dto.AlcoholDto;
 import com.alcohol.dionysus.bean.dto.AlcoholTypeDto;
-import com.alcohol.dionysus.bean.param.AlcoholRequestParam;
+import com.alcohol.dionysus.bean.request.AlcoholRequestParam;
 import com.alcohol.dionysus.entity.AlcoholBrand;
 import com.alcohol.dionysus.entity.AlcoholBrand_;
 import com.alcohol.dionysus.entity.AlcoholType;

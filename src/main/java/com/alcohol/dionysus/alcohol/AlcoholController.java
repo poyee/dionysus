@@ -3,7 +3,7 @@ package com.alcohol.dionysus.alcohol;
 import com.alcohol.dionysus.bean.dto.AlcoholBrandDto;
 import com.alcohol.dionysus.bean.dto.AlcoholDto;
 import com.alcohol.dionysus.bean.dto.AlcoholTypeDto;
-import com.alcohol.dionysus.bean.param.AlcoholRequestParam;
+import com.alcohol.dionysus.bean.request.AlcoholRequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

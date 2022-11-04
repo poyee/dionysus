@@ -1,4 +1,4 @@
-package com.alcohol.dionysus.bean.param;
+package com.alcohol.dionysus.bean.request;
 
 import lombok.Data;
 
